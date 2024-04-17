@@ -1,0 +1,15 @@
+.receitas {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.tabela-receitas {
+  overflow-y: auto;
+  max-height: 50vh;
+}
+
+.campo-obrigatorio:invalid {
+  border-color: red;
+}

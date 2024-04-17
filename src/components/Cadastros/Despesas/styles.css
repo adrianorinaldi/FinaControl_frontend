@@ -1,0 +1,15 @@
+.despesas {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.tabela-despesas {
+  overflow-y: auto;
+  max-height: 50vh;
+}
+
+.campo-obrigatorio:invalid {
+  border-color: red;
+}

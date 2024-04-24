@@ -1,11 +1,11 @@
 import { Form, Button, Table, Modal } from 'react-bootstrap';
 import './styles.css';
 import { React, useState, useEffect } from 'react';
-import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
 import 'react-toastify/dist/ReactToastify.css';
 import { toast } from 'react-toastify';
+import requisicao from '../../../connection/index';
 
 function CadastroContas() {
   const [dados, setDados] = useState([]);
@@ -45,7 +45,7 @@ function CadastroContas() {
 
   const buscarTodasContas = async (event) => {
     try {
-      const response = await axios.get('http://localhost:8080/conta/buscar_todas');
+      const response = await requisicao.get('/conta/buscar_todas');
       setDados(response.data);
     } catch (error) {
       console.error('Erro:', error);
@@ -63,7 +63,7 @@ function CadastroContas() {
       return;
     }
     try {
-      const response = await axios.post('http://localhost:8080/conta/salvar', formulario);
+      const response = await requisicao.post('/conta/salvar', formulario);
       if (response.status === 201) {
         toast.success("Conta Cadastrada com sucesso!",{
           position: "top-right",
@@ -89,7 +89,7 @@ function CadastroContas() {
 
   const excluirConta = async (id) => {
     try {
-      const response = await axios.delete(`http://localhost:8080/conta/deletar/${id}`);
+      const response = await requisicao.delete(`/conta/deletar/${id}`);
       if (response) {
         console.log("excluiu");
         toast.success("Conta Excluída com sucesso!");
@@ -124,7 +124,7 @@ function CadastroContas() {
 
   const salvarAlteracaoConta = async (event) => {
     try {
-      const response = await axios.post('http://localhost:8080/conta/alterar', formularioAlteracao);
+      const response = await requisicao.post('/conta/alterar', formularioAlteracao);
       if (response.status === 201) {
         console.log('Conta Alterada com sucesso!');
         toast.success("Conta Alterada com sucesso!");

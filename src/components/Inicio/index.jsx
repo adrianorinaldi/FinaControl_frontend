@@ -1,8 +1,7 @@
 import { Button, Form, Table } from 'react-bootstrap';
 import './styles.css';
-import axios from 'axios';
 import { React, useState, useEffect } from 'react';
-import { toast } from 'react-toastify';
+import requisicao from '../../connection/index';
 
 function Inicio () {
 
@@ -18,7 +17,7 @@ function Inicio () {
 
   const buscarTotalReceita = async (event) => {
     try {
-      const response = await axios.get(`http://localhost:8080/receita/buscar_total_receita`);
+      const response = await requisicao.get(`/receita/buscar_total_receita`);
       setTotalReceita(response.data);
 
     } catch (error) {
@@ -28,7 +27,7 @@ function Inicio () {
 
   const buscarTotalDespesa = async (event) => {
     try {
-      const response = await axios.get(`http://localhost:8080/despesa/buscar_total_despesa`);
+      const response = await requisicao.get(`/despesa/buscar_total_despesa`);
       setTotalDespesa(response.data);
 
     } catch (error) {
@@ -38,8 +37,8 @@ function Inicio () {
 
   const buscarTotal = async (event) => {
     try {
-      const despesa = await axios.get(`http://localhost:8080/despesa/buscar_total_despesa`);
-      const receita = await axios.get(`http://localhost:8080/receita/buscar_total_receita`);
+      const despesa = await requisicao.get(`/despesa/buscar_total_despesa`);
+      const receita = await requisicao.get(`/receita/buscar_total_receita`);
 
       setTotalSaldo(receita.data - despesa.data);
 

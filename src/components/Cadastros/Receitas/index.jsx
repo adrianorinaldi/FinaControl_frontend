@@ -1,7 +1,7 @@
 import { Button, Form, Table, Modal } from "react-bootstrap";
 import "./styles.css";
 import { React, useState, useEffect } from 'react';
-import axios from 'axios';
+import requisicao from '../../../connection/index';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
 import DatePicker from 'react-datepicker';
@@ -92,7 +92,7 @@ function Receitas () {
 
   const buscarTotalReceita = async (event) => {
     try {
-      const response = await axios.get(`http://localhost:8080/receita/buscar_total_receita`);
+      const response = await requisicao.get(`/receita/buscar_total_receita`);
       setTotalReceita(response.data);
     } catch (error) {
       console.error('Erro:', error);
@@ -102,7 +102,7 @@ function Receitas () {
 
   const buscarCategorias = async (event) => {
     try {
-      const response = await axios.get('http://localhost:8080/categoria/buscar_categoria_receitas');
+      const response = await requisicao.get('/categoria/buscar_categoria_receitas');
       setCategorias(response.data);
     } catch (error) {
       console.error('Erro:', error);
@@ -112,7 +112,7 @@ function Receitas () {
 
   const buscarContas = async (event) => {
     try {
-      const response = await axios.get('http://localhost:8080/conta/buscar_todas');
+      const response = await requisicao.get('/conta/buscar_todas');
       setContas(response.data);
     } catch (error) {
       console.error('Erro:', error);
@@ -122,7 +122,7 @@ function Receitas () {
 
   const buscarTodasReceitas = async (event) => {
     try {
-      const response = await axios.get('http://localhost:8080/receita/buscar_todas');
+      const response = await requisicao.get('/receita/buscar_todas');
       setReceitas(response.data);
       buscarTotalReceita();
     } catch (error) {
@@ -145,7 +145,7 @@ function Receitas () {
       return;
     }
     try {
-      const response = await axios.post('http://localhost:8080/receita/salvar', formulario);
+      const response = await requisicao.post('/receita/salvar', formulario);
       if (response.status === 201) {
         console.log('Receita Cadastrada com sucesso!');
         toast.success("Receita Cadastrada com sucesso!");
@@ -163,7 +163,7 @@ function Receitas () {
 
   const excluirReceita = async (id) => {
       try {
-        const response = await axios.delete(`http://localhost:8080/receita/deletar/${id}`);
+        const response = await requisicao.delete(`/receita/deletar/${id}`);
         if(response) {
           console.log("excluiu");
           toast.success("Receita Excluída com sucesso!");
@@ -208,7 +208,7 @@ function Receitas () {
 
   const salvarAlteracaoReceita = async (event) => {
     try {
-      const response = await axios.post('http://localhost:8080/receita/salvar', formularioAlteracao);
+      const response = await requisicao.post('/receita/salvar', formularioAlteracao);
       if (response.status === 201) {
         console.log('Receita Alterada com sucesso!');
         toast.success("Receita Alterada com sucesso!");

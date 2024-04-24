@@ -1,7 +1,7 @@
 import { Button, Form, Table, Modal } from "react-bootstrap";
 import "./styles.css";
 import { React, useState, useEffect } from 'react';
-import axios from 'axios';
+import requisicao from '../../../connection/index';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
 import DatePicker from 'react-datepicker';
@@ -94,7 +94,7 @@ function despesas () {
 
   const buscarTotalDespesa = async (event) => {
     try {
-      const response = await axios.get(`http://localhost:8080/despesa/buscar_total_despesa`);
+      const response = await requisicao.get(`/despesa/buscar_total_despesa`);
       setTotalDespesa(response.data);
     } catch (error) {
       console.error('Erro:', error);
@@ -104,7 +104,7 @@ function despesas () {
 
   const buscarCategorias = async (event) => {
     try {
-      const response = await axios.get('http://localhost:8080/categoria/buscar_categoria_despesas');
+      const response = await requisicao.get('/categoria/buscar_categoria_despesas');
       setCategorias(response.data);
     } catch (error) {
       console.error('Erro:', error);
@@ -114,7 +114,7 @@ function despesas () {
 
   const buscarContas = async (event) => {
     try {
-      const response = await axios.get('http://localhost:8080/conta/buscar_todas');
+      const response = await requisicao.get('/conta/buscar_todas');
       setContas(response.data);
     } catch (error) {
       console.error('Erro:', error);
@@ -124,7 +124,7 @@ function despesas () {
 
   const buscarTodasDespesas = async (event) => {
     try {
-      const response = await axios.get('http://localhost:8080/despesa/buscar_todas');
+      const response = await requisicao.get('/despesa/buscar_todas');
       setDespesas(response.data);
       buscarTotalDespesa();
     } catch (error) {
@@ -147,7 +147,7 @@ function despesas () {
       return;
     }
     try {
-      const response = await axios.post('http://localhost:8080/despesa/salvar', formulario);
+      const response = await requisicao.post('/despesa/salvar', formulario);
       if (response.status === 201) {
         console.log('Despesa Cadastrada com sucesso!');
         toast.success("Despesa Cadastrada com sucesso!");
@@ -165,7 +165,7 @@ function despesas () {
 
   const excluirDespesa = async (id) => {
       try {
-        const response = await axios.delete(`http://localhost:8080/despesa/deletar/${id}`);
+        const response = await requisicao.delete(`/despesa/deletar/${id}`);
         if(response) {
           console.log("excluiu");
           toast.success("Despesa Excluída com sucesso!");
@@ -210,7 +210,7 @@ function despesas () {
 
   const salvarAlteracaoDespesa = async (event) => {
     try {
-      const response = await axios.post('http://localhost:8080/despesa/salvar', formulario);
+      const response = await requisicao.post('/despesa/salvar', formulario);
       if (response.status === 201) {
         console.log('Despesa Alterada com sucesso!');
         toast.success("Despesa Alterada com sucesso!");

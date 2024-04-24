@@ -1,10 +1,10 @@
 import { Form, Button, Table, Modal } from 'react-bootstrap';
 import './styles.css';
 import { React, useState, useEffect } from 'react';
-import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { toast } from 'react-toastify';
+import requisicao from '../../../connection/index';
 
 function Categorias() {
   const [mostrar, setMostrar] = useState(false);
@@ -45,7 +45,7 @@ function Categorias() {
 
   const buscarTodasCategorias = async (event) => {
     try {
-      const response = await axios.get('http://localhost:8080/categoria/buscar_todas');
+      const response = await requisicao.get('/categoria/buscar_todas');
       setDados(response.data);
     } catch (error) {
       console.error('Erro:', error);
@@ -64,7 +64,7 @@ function Categorias() {
       return;
     }
     try {
-      const response = await axios.post('http://localhost:8080/categoria/salvar', formulario);
+      const response = await requisicao.post('/categoria/salvar', formulario);
       if (response.status === 201) {
         console.log('Categoria Cadastrada com sucesso!');
         toast.success("Categoria Cadastrada com sucesso!");
@@ -81,7 +81,7 @@ function Categorias() {
 
   const excluirCategoria = async (id) => {
       try {
-        const response = await axios.delete(`http://localhost:8080/categoria/deletar/${id}`);
+        const response = await requisicao.delete(`/categoria/deletar/${id}`);
         if(response) {
           console.log("excluiu");
           toast.success("Categoria Excluída com sucesso!");
@@ -116,7 +116,7 @@ function Categorias() {
 
   const salvarAlteracaoCategoria = async (event) => {
     try {
-      const response = await axios.post('http://localhost:8080/categoria/salvar', formularioAlteracao);
+      const response = await requisicao.post('/categoria/salvar', formularioAlteracao);
       if (response.status === 201) {
         console.log('Conta Alterada com sucesso!');
         toast.success("Categoria Alterada com sucesso!");

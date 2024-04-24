@@ -1,10 +1,8 @@
 import { Nav } from 'react-bootstrap';
 import './styles.css';
 import { Outlet } from 'react-router-dom';
-import { toast } from 'react-toastify';
-import axios from 'axios';
+import requisicao from '../../connection/index';
 import { React, useState, useEffect } from 'react';
-
 
 function Index() {
 
@@ -16,7 +14,7 @@ function Index() {
 
   const buscarTesteDeConexao = async (event) => {
     try {
-      const response = await axios.get(`https://teste-backend-production.up.railway.app/teste/teste_de_conexao`);
+      const response = await requisicao.get(`/teste/teste_de_conexao`);
       setSistemaFora(false);
     } catch (error) {
       console.error('Erro:', error);

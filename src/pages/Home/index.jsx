@@ -16,7 +16,7 @@ function Index() {
 
   const buscarTesteDeConexao = async (event) => {
     try {
-      const response = await axios.get(`http://localhost:8080/teste/teste_de_conexao`);
+      const response = await axios.get(`https://teste-backend-production.up.railway.app/teste/teste_de_conexao`);
       setSistemaFora(false);
     } catch (error) {
       console.error('Erro:', error);

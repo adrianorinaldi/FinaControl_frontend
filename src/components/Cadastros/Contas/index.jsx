@@ -96,11 +96,11 @@ function CadastroContas() {
         buscarTodasContas();
       } else {
         console.log("Não excluiu");
-        toast.error("Erro ao tentar cadastrar!");
+        toast.error("Erro ao tentar excluir!");
       }
     } catch (error) {
       console.error('Erro:', error);
-      toast.error("Erro ao tentar cadastrar!");
+      toast.error("Erro ao tentar excluir!");
     }
   };
 

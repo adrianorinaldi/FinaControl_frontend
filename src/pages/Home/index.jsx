@@ -1,4 +1,4 @@
-import { Nav } from 'react-bootstrap';
+import { Nav, Spinner, Button } from 'react-bootstrap';
 import './styles.css';
 import { Outlet } from 'react-router-dom';
 import requisicao from '../../connection/index';
@@ -26,7 +26,16 @@ function Index() {
     <div className='tela-toda'>
       {sistemaFora === true ? 
         <div className="sistema-fora">
-          <h1>Sistema fora do ar...</h1>
+          <Button variant="primary" disabled>
+            <Spinner
+              as="span"
+              animation="grow"
+              size="sm"
+              role="status"
+              aria-hidden="true"
+            />
+            Carregando...
+          </Button>
         </div>
        : 
        <div>

@@ -7,8 +7,8 @@ Para testar basta acessar o link:
 
 ---
 
-## ![Ícone de exemplo](https://api.iconify.design/ic:twotone-chrome-reader-mode.svg?color=%23c82828)IMPORTANTE
-O back-end deste projeto esta no seguinte link:
+## ![Ícone de exemplo](https://api.iconify.design/ic:twotone-chrome-reader-mode.svg?color=%23c82828) IMPORTANTE
+Este é o Front-end do projeto, o Back-end deste projeto esta no seguinte link:
 - [FinaControl_backend](https://github.com/adrianorinaldi/FinaControl_backend.git)
 
  
@@ -28,4 +28,4 @@ O front-end do projeto foi desenvolvido utilizando as seguintes tecnologias:
 
 ---
 
-Desenvolvido por Adriano Margheti Rinaldi
+Desenvolvido por [Adriano Margheti Rinaldi](https://www.linkedin.com/in/adriano-rinaldi-dev/)

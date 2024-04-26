@@ -375,11 +375,9 @@ function Receitas () {
                 <tr key={item.id}>
                   <td>{format(item.data, 'dd/MM/yyyy')}</td>
                   <td>{item.descricao}</td>
-                  <td>{item.idCategoria}</td>
                   <td>{item.categoria}</td>
-                  <td>{item.valor.toLocaleString('pt-BR')}</td>
-                  <td>{item.idConta}</td>
                   <td>{item.conta}</td>
+                  <td>{item.valor.toLocaleString('pt-BR')}</td>
                   <td>
                     <Button variant="danger" onClick={() => excluirReceita(item.id)}>
                       <FontAwesomeIcon icon={faTrash} />

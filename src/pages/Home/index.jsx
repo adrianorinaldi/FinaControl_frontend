@@ -40,7 +40,7 @@ function Index() {
        : 
        <div>
          <div className='cabecalho'>
-           cabecalho
+           FINA CONTROL - Controle Financeiro
          </div>
          <div className='linha-central'>
            <div className='menu-lateral'>

@@ -86,6 +86,7 @@ function Inicio () {
             <Form.Control
               type="text"
               id="despesa"
+              className="text-center"
               aria-describedby="passwordHelpBlock"
               defaultValue={totalDespesa}
             />

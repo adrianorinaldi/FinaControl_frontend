@@ -68,6 +68,7 @@ function Categorias() {
       if (response.status === 201) {
         console.log('Categoria Cadastrada com sucesso!');
         toast.success("Categoria Cadastrada com sucesso!");
+        formulario.descricao = '';
         buscarTodasCategorias();
       } else {
         console.error('Erro ao enviar os dados.' + response);

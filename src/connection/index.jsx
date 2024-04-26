@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const requisicao = axios.create({
-  baseURL: 'https://teste-backend-production.up.railway.app',
+  baseURL: 'https://finacontrol-backend.up.railway.app',
 });
 
 export default requisicao;

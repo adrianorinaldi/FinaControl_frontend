@@ -1,11 +1,17 @@
 ## 🔖&nbsp; Sobre
 
 O projeto **FinaControl** é um sistema de controle de gastos pessoas que foi criado para auxiliar no registro e controle dos seus gastos pessoas do dia a dia.
+
 Para testar basta acessar o link:
 - [FinaControl](https://finacontrol.up.railway.app/)
 
 ---
 
+## ![Ícone de exemplo](https://api.iconify.design/ic:twotone-chrome-reader-mode.svg?color=%23c82828)IMPORTANTE
+O back-end deste projeto esta no seguinte link:
+- [FinaControl_backend](https://github.com/adrianorinaldi/FinaControl_backend.git)
+
+ 
 ## 🚀 Tecnologias utilizadas
 
 O front-end do projeto foi desenvolvido utilizando as seguintes tecnologias:
